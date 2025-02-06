@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checking Compatibility...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Checking Compatibility...</h1>
+        <p id="status">Please wait a moment.</p>
+    </div>
+
+    <script>
+        function checkCompatibility() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const minRAM = 4; // Minimaal 4GB RAM vereist
+            let compatible = true;
+            let message = "Your device is compatible! Redirecting...";
+
+            // Detecteer of het Firefox is
+            const isFirefox = userAgent.includes("firefox");
+
+            // Browser check
+            if (userAgent.includes("safari") && !userAgent.includes("chrome")) {
+                compatible = false;
+                message = "Your browser is not supported. Please use Chrome, Edge, Firefox, or Brave.";
+            }
+
+            // RAM check (alleen betrouwbaar op desktop)
+            if (navigator.deviceMemory && navigator.deviceMemory < minRAM) {
+                compatible = false;
+                message = "Your device does not meet the minimum memory requirements (4GB RAM).";
+            }
+
+            // WebGPU check (maar Firefox mag doorgaan)
+            if (!navigator.gpu && !isFirefox) {
+                compatible = false;
+                message = "Your browser does not support WebGPU. Please update your browser or use Firefox.";
+            }
+
+            // Update status
+            document.getElementById("status").innerText = message;
+
+            // Wacht minimaal 2 seconden, dan redirecten of foutmelding tonen
+            setTimeout(() => {
+                if (compatible) {
+                    window.location.href = "model.html"; // Ga verder als compatibel
+                }
+            }, 2000);
+        }
+
+        // Start check na laden pagina
+        window.onload = checkCompatibility;
+    </script>
+</body>
+</html>
