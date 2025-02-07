@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatekeep</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: #ffffff;
+            border-right: 1px solid #e5e7eb;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+        .new-chat-btn {
+            background-color: #4169e1;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .chat-history {
+            flex-grow: 1;
+            color: #666;
+            padding: 1rem 0;
+        }
+
+        .bottom-section {
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+        }
+
+        .get-app {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .new-badge {
+            background-color: #4169e1;
+            color: white;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .profile-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bot-avatar {
+            width: 48px;
+            height: 48px;
+            background-color: #4169e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .message-input {
+            width: 100%;
+            padding: 1rem;
+            padding-right: 3.5rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            background-color: white;
+            font-size: 0.9rem;
+        }
+
+        .input-buttons {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .input-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            color: #666;
+        }
+
+        .input-button:hover {
+            background-color: #f1f3f5;
+        }
+
+        .footer-text {
+            text-align: center;
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                gatekeep
+            </div>
+            <button class="new-chat-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 12h16m-8-8v16"/>
+                </svg>
+                New chat
+            </button>
+            <div class="chat-history">No chat history yet</div>
+            <div class="bottom-section">
+                <a href="#" class="get-app">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                        <line x1="12" y1="18" x2="12" y2="18"/>
+                    </svg>
+                    Get App
+                    <span class="new-badge">COMING SOON</span>
+                </a>
+                </div>
+        </aside>
+        <main class="main-content">
+            <div class="chat-container">
+                <div class="bot-avatar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                </div>
+                <h1 style="font-size: 1.5rem; font-weight: 500;">Hi, I'm GateKeep.</h1>
+                <p style="color: #666;">How can I assist you today?</p>
+            </div>
+            <div class="input-container">
+                <input type="text" class="message-input" placeholder="Message...">
+                <div class="input-buttons">
+                    <button class="input-button">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                    </button>
+                    </div>
+            </div>
+            <p class="footer-text">AI-generated content, check important info.</p>
+        </main>
+    </div>
+
+    <script>
+        // Add basic interactivity
+        document.querySelector('.new-chat-btn').addEventListener('click', () => {
+            document.querySelector('.message-input').value = '';
+            document.querySelector('.chat-history').textContent = 'No chat history yet';
+        });
+
+        document.querySelector('.message-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && e.target.value.trim()) {
+                alert('Sending message: ' + e.target.value);
+                e.target.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
+
